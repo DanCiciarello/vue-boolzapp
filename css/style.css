@@ -1,0 +1,70 @@
+/* Variables */
+:root {
+    --bs-body-bg: #DADBD5;
+}
+
+/* ------------------------------------ */
+
+/* Generals */
+
+.cd-boolzap-outside-header {
+    height: 150px;
+    background-color: #009688;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+/* ------------------------------------ */
+
+/* Boolzap */
+
+.cd-boolzap-container {
+    height: 95vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    background-color: #fff;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* ------------------------------------ */
+
+/* Left column */
+
+.cd-user-bar {
+    flex-basis: 60px;
+    background-color: black;
+}
+
+.cd-notifications-bar {
+    flex-basis: 75px;
+    background-color: antiquewhite;
+}
+
+.cd-search-bar {
+    flex-basis: 45px;
+    background-color: cadetblue;
+}
+
+.cd-user-list {
+    height: 100%;
+    overflow: auto;
+    background-color: darkgreen;
+}
+
+/* ------------------------------------ */
+
+/* Right column */
+
+.cd-chat-header {
+    flex-basis: 60px;
+    background-color: rgb(108, 108, 108);
+}
+
+.cd-chat-message {
+    flex-basis: 60px;
+    background-color: rgb(108, 108, 108);
+}
