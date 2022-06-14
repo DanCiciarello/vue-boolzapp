@@ -1,6 +1,9 @@
 /* Variables */
 :root {
     --bs-body-bg: #DADBD5;
+    --cd-light-gray-1: #EAEAEA;
+    --cd-light-gray-2: #FAFAFA;
+    --cd-light-gray-3: #F3EEEA;
 }
 
 /* ------------------------------------ */
@@ -34,25 +37,28 @@
 
 /* Left column */
 
+.cd-left-column {
+    border-right: 1px solid #D6D6D6;
+}
+
 .cd-user-bar {
     flex-basis: 60px;
-    background-color: black;
+    background-color: var(--cd-light-gray-1);
 }
 
 .cd-notifications-bar {
     flex-basis: 75px;
-    background-color: antiquewhite;
+    background-color: #8EDAFC;
 }
 
 .cd-search-bar {
     flex-basis: 45px;
-    background-color: cadetblue;
+    background-color: var(--cd-light-gray-2)
 }
 
 .cd-user-list {
     height: 100%;
     overflow: auto;
-    background-color: darkgreen;
 }
 
 /* ------------------------------------ */
@@ -61,10 +67,15 @@
 
 .cd-chat-header {
     flex-basis: 60px;
-    background-color: rgb(108, 108, 108);
+    background-color: var(--cd-light-gray-1);
+}
+
+.cd-chat-content {
+    background-image: url(../img/mine.jpg);
+    overflow: auto;
 }
 
 .cd-chat-message {
     flex-basis: 60px;
-    background-color: rgb(108, 108, 108);
+    background-color: var(--cd-light-gray-3);
 }
