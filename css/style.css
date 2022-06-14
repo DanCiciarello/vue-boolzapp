@@ -161,6 +161,10 @@
     padding: var(--cd-padding-small) var(--cd-padding-regular);
 }
 
+.selectedChat {
+    background-color: #E9EBEB;
+}
+
 
 /* ------------------------------------ */
 

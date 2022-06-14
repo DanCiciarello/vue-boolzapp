@@ -91,25 +91,35 @@
                 <div class="cd-user-chat-list flex-grow-1">
 
                     <!-- User chat cycle -->
-                    <div class="cd-user-chat-item d-flex" v-for="(userChat, i) in userChatList">
+                    <div v-for="(userChat, i) in userChatList"
+                        :class="selectedChatIndex === i ? 'selectedChat' : ''">
 
-                        <!-- User profile pic -->
-                        <div>
-                            <img :src="'../img/avatar' + userChat.avatar + '.jpg'" :alt="'Profile pic of ' + userChat.name" class="cd-round-pic cd-round-pic-large me-3">
-                        </div>
+                        <!-- User chat template -->
+                        <div class="cd-user-chat-item d-flex"
+                            @click="selectedChat(i)">
 
-                        <!-- User chat info -->
-                        <div class="d-flex align-items-center flex-grow-1">
+                            <!-- User profile pic -->
                             <div>
-                                <span class="cd-user-name d-block">{{userChat.name}}</span>
-                                <span class="cd-span-regular text-black-50">Ultimo messaggio inviato</span>
+                                <img :src="'../img/avatar' + userChat.avatar + '.jpg'"
+                                    :alt="'Profile pic of ' + userChat.name"
+                                    class="cd-round-pic cd-round-pic-large me-3">
                             </div>
+    
+                            <!-- User chat info -->
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <div>
+                                    <span class="cd-user-name d-block">{{userChat.name}}</span>
+                                    <span class="cd-span-regular text-black-50">Ultimo messaggio inviato</span>
+                                </div>
+                            </div>
+    
+                            <!-- User chat time last message -->
+                            <div>
+                                <span class="cd-span-small text-black-50">12.00</span>
+                            </div>
+                            
                         </div>
-
-                        <!-- User chat time last message -->
-                        <div>
-                            <span class="cd-span-small text-black-50">12.00</span>
-                        </div>
+                        
 
                     </div>
 
@@ -128,13 +138,13 @@
 
                         <!-- User profile pic -->
                         <div>
-                            <img src="../img/avatar_1.jpg" alt="" class="cd-round-pic cd-round-pic-small me-3">
+                            <img :src="selectedUserChatImage" alt="Profile pic" class="cd-round-pic cd-round-pic-small me-3">
                         </div>
     
                         <!-- User chat info -->
                         <div class="d-flex align-items-center flex-grow-1">
                             <div>
-                                <span class="cd-user-name d-block lh-1">Michele</span>
+                                <span class="cd-user-name d-block lh-1">{{selectedUserChatName}}</span>
                                 <span class="cd-span-regular text-black-50 lh-1">Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
