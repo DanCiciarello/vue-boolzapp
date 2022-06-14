@@ -91,17 +91,17 @@
                 <div class="cd-user-chat-list flex-grow-1">
 
                     <!-- User chat cycle -->
-                    <div class="cd-user-chat-item d-flex">
+                    <div class="cd-user-chat-item d-flex" v-for="(userChat, i) in userChatList">
 
                         <!-- User profile pic -->
                         <div>
-                            <img src="../img/avatar_1.jpg" alt="" class="cd-round-pic cd-round-pic-large me-3">
+                            <img :src="'../img/avatar' + userChat.avatar + '.jpg'" :alt="'Profile pic of ' + userChat.name" class="cd-round-pic cd-round-pic-large me-3">
                         </div>
 
                         <!-- User chat info -->
                         <div class="d-flex align-items-center flex-grow-1">
                             <div>
-                                <span class="cd-user-name d-block">Michele</span>
+                                <span class="cd-user-name d-block">{{userChat.name}}</span>
                                 <span class="cd-span-regular text-black-50">Ultimo messaggio inviato</span>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
     </div>
 
     <!-- Javascript -->
-    <script src="./js/db.js"></script>
+    <script src="../js/db.js"></script>
     <script src="./js/main.js"></script>
 
 </body>

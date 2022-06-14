@@ -3,7 +3,9 @@ new Vue ({
     el: "#vueApp",
 
     // App data
-    data: {},
+    data: {
+        userChatList: contatti,
+    },
 
     // App methods
     methods: {},
