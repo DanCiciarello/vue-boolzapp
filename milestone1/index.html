@@ -80,7 +80,7 @@
                     <div class="input-group">
                         <span class="input-group-text" id="search-bar-users"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <input  type="text"
-                                class="form-control cd-input-search-bar"
+                                class="form-control cd-input"
                                 placeholder="Cerca o inizia una nuova chat"
                                 aria-describedby="search-bar-users">
                     </div>
@@ -90,7 +90,7 @@
                 <!-- User chat list -->
                 <div class="cd-user-chat-list flex-grow-1">
 
-                    <!-- User chat item -->
+                    <!-- User chat cycle -->
                     <div class="cd-user-chat-item d-flex">
 
                         <!-- User profile pic -->
@@ -121,17 +121,84 @@
             <div class="col-md-8 d-flex flex-column h-100">
 
                 <!-- Chat header -->
-                <div class="cd-chat-header flex-shrink-0">
+                <div class="cd-chat-header flex-shrink-0 d-flex justify-content-between">
+
+                    <!-- Chat user info -->
+                    <div class="d-flex align-items-center">
+
+                        <!-- User profile pic -->
+                        <div>
+                            <img src="../img/avatar_1.jpg" alt="" class="cd-round-pic cd-round-pic-small me-3">
+                        </div>
+    
+                        <!-- User chat info -->
+                        <div class="d-flex align-items-center flex-grow-1">
+                            <div>
+                                <span class="cd-user-name d-block lh-1">Michele</span>
+                                <span class="cd-span-regular text-black-50 lh-1">Ultimo accesso oggi alle 12:00</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Chat menu -->
+                    <div class="user-menu d-flex align-items-center">
+                        <i class="fa-solid fa-magnifying-glass fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-paperclip fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-ellipsis-vertical fa-lg me-2 cd-icon cd-icon-dark"></i>
+                    </div>
 
                 </div>
 
                 <!-- Chat content -->
-                <div class="cd-chat-content flex-grow-1">
+                <div class="cd-chat-content flex-grow-1 pt-5">
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 d-flex flex-column">
+
+                            <!-- Message received template -->
+                            <div class="d-flex justify-content-start">
+                                <div class="messageBox messageReceived">
+                                    <div>Ciao!</div>
+                                    <div class="d-flex justify-content-end">
+                                        <span class="cd-span-xsmall text-black-50">12.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Message sent template -->
+                            <div class="d-flex justify-content-end">
+                                <div class="messageBox messageSent">
+                                    <div>Ehilà!</div>
+                                    <div class="d-flex justify-content-end">
+                                        <span class="cd-span-xsmall text-black-50">12.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
 
-                <!-- Chat message -->
-                <div class="cd-chat-message flex-shrink-0">
+                <!-- Chat send message -->
+                <div class="cd-chat-send-message flex-shrink-0 d-flex">
+
+                    <!-- Emoji icon -->
+                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center cd-chat-send-message-icon">
+                        <i class="fa-regular fa-face-smile fa-lg cd-icon cd-icon-black"></i>
+                    </div>
+
+                    <!-- Input message -->
+                    <div class="flex-grow-1 d-flex align-items-center justify-content-center ">
+                        <input type="text" class="form-control cd-input cd-input-rounded" id="newMessage" placeholder="Scrivi un messaggio">
+                    </div>
+
+                    <!-- Microphone icon -->
+                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center cd-chat-send-message-icon">
+                        <i class="fa-solid fa-microphone fa-lg cd-icon cd-icon-black"></i>
+                    </div>
 
                 </div>
 
