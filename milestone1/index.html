@@ -25,20 +25,20 @@
     <div id="vueApp">
 
         <!-- Boolzap container -->
-        <div class="container d-flex cd-boolzap-container">
+        <div class="container d-flex cd-boolzap-container shadow">
 
             <!-- Left column -->
             <div class="col-md-4 d-flex flex-column h-100 cd-left-column">
 
-                <!-- User bar -->
-                <div class="cd-user-bar flex-shrink-0 d-flex justify-content-between">
+                <!-- User profile bar -->
+                <div class="cd-user-profile-bar flex-shrink-0 d-flex justify-content-between">
                     
                     <!-- User profile -->
                     <div class="cd-user-profile d-flex align-items-center">
 
                         <!-- User profile pic -->
                         <div class="cd-user-profile-pic me-2">
-                            <img src="../img/avatar_io.jpg" alt="Personal profile pic" class="cd-round-pic-small">
+                            <img src="../img/avatar_io.jpg" alt="Personal profile pic" class="cd-round-pic cd-round-pic-small">
                         </div>
 
                         <!-- User profile name -->
@@ -58,18 +58,61 @@
                 </div>
 
                 <!-- Notifications bar -->
-                <div class="cd-notifications-bar flex-shrink-0">
+                <div class="cd-notifications-bar flex-shrink-0 d-flex align-items-center">
+
+                    <!-- Notification icon -->
+                    <div class="cd-round-pic cd-round-pic-small d-flex align-items-center justify-content-center me-2">
+                        <i class="fa-solid fa-bell-slash cd-icon cd-icon-blue"></i>
+                    </div>
+
+                    <!-- Notification text -->
+                    <div>
+                        <span class="cd-span-large d-block lh-1">Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#" class="cd-span-regular lh-1 text-muted">Attiva notifiche desktop</a>
+                    </div>
 
                 </div>
 
                 <!-- Search bar -->
                 <div class="cd-search-bar flex-shrink-0">
 
+                    <!-- Input field -->
+                    <div class="input-group">
+                        <span class="input-group-text" id="search-bar-users"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input  type="text"
+                                class="form-control cd-input-search-bar"
+                                placeholder="Cerca o inizia una nuova chat"
+                                aria-describedby="search-bar-users">
+                    </div>
+
                 </div>
 
-                <!-- User list -->
-                <div class="cd-user-list flex-grow-1">
-                    
+                <!-- User chat list -->
+                <div class="cd-user-chat-list flex-grow-1">
+
+                    <!-- User chat item -->
+                    <div class="cd-user-chat-item d-flex">
+
+                        <!-- User profile pic -->
+                        <div>
+                            <img src="../img/avatar_1.jpg" alt="" class="cd-round-pic cd-round-pic-large me-3">
+                        </div>
+
+                        <!-- User chat info -->
+                        <div class="d-flex align-items-center flex-grow-1">
+                            <div>
+                                <span class="cd-user-name d-block">Michele</span>
+                                <span class="cd-span-regular text-black-50">Ultimo messaggio inviato</span>
+                            </div>
+                        </div>
+
+                        <!-- User chat time last message -->
+                        <div>
+                            <span class="cd-span-small text-black-50">12.00</span>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>

@@ -6,14 +6,25 @@
     --cd-light-gray-3: #F3EEEA;
     --cd-dark-gray-1: #B1B1B1;
     --cd-padding-small: 10px;
+    --cd-padding-regular: 20px;
+    --cd-padding-large: 30px;
 }
 
 /* ------------------------------------ */
 
 /* Typography */
 
+.cd-span-small {
+    font-size: 11px;
+}
+
+.cd-span-regular {
+    font-size: 12px;
+}
+
+.cd-span-large,
 .cd-user-name {
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 /* ------------------------------------ */
@@ -29,18 +40,30 @@
     left: 0;
 }
 
-.cd-round-pic-small {
-    height: 50px;
+.cd-round-pic {
+    aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #ffffff;
 }
 
-.c {
+.cd-round-pic-small {
+    height: 50px;
+}
+
+.cd-round-pic-large {
+    height: 60px;
+}
+
+.cd-icon {
     font-size: 20px;
 }
 
 .cd-icon-dark {
     color: var(--cd-dark-gray-1);
+}
+
+.cd-icon-blue {
+    color: #8EDAFC;
 }
 
 /* ------------------------------------ */
@@ -71,7 +94,7 @@
 
 /* User Bar */
 
-.cd-user-bar {
+.cd-user-profile-bar {
     flex-basis: 70px;
     background-color: var(--cd-light-gray-1);
     padding: var(--cd-padding-small);
@@ -85,6 +108,7 @@
 .cd-notifications-bar {
     flex-basis: 75px;
     background-color: #8EDAFC;
+    padding: var(--cd-padding-small) var(--cd-padding-regular);
 }
 
 
@@ -94,7 +118,20 @@
 
 .cd-search-bar {
     flex-basis: 45px;
-    background-color: var(--cd-light-gray-2)
+    background-color: var(--cd-light-gray-2);
+    padding: var(--cd-padding-small);
+}
+
+#search-bar-users {
+    background-color: #ffffff;
+    border-radius: 0;
+    border: 1px solid #f5f5f5;
+    padding: 0 var(--cd-padding-regular);
+}
+
+.cd-input-search-bar {
+    border-radius: 0;
+    border: 1px solid #f5f5f5;
 }
 
 
@@ -102,9 +139,13 @@
 
 /* User List */
 
-.cd-user-list {
+.cd-user-chat-list {
     height: 100%;
     overflow: auto;
+}
+
+.cd-user-chat-item {
+    padding: var(--cd-padding-small) var(--cd-padding-regular);
 }
 
 
