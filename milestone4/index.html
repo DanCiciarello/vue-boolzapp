@@ -85,6 +85,8 @@
                                 class="form-control cd-input"
                                 placeholder="Cerca o inizia una nuova chat"
                                 aria-describedby="search-bar-users"
+                                v-model="searchInputText"
+                                @keyup="filterUserList"
                                 >
                     </div>
 
@@ -94,7 +96,7 @@
                 <div class="cd-user-chat-list flex-grow-1">
 
                     <!-- User chat cycle -->
-                    <div v-for="(userChat, i) in userChatList"
+                    <div v-for="(userChat, i) in userChatListFiltered"
                         :class="selectedChatIndex === i ? 'selectedChat' : ''">
 
                         <!-- User chat template -->
