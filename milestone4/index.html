@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzap</title>
+
+    <!-- Vue -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js' integrity='sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==' crossorigin='anonymous'></script>
+    <!-- Day.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/dayjs.min.js" integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.css' integrity='sha512-F5fn88UDJWd0T1GwpnIpbuFuSxCgXNnJhIihkiWeqYUyLt3oPUaYzL774VjL7eGj8ktZCZQS//txAxgokiz1Lw==' crossorigin='anonymous'/>
+    <!-- Fontawesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+    <!-- Outside header -->
+    <header class="cd-boolzap-outside-header"></header>
+
+    <!-- Vue app -->
+    <div id="vueApp">
+
+        <!-- Boolzap container -->
+        <div class="container d-flex cd-boolzap-container shadow">
+
+            <!-- Left column -->
+            <div class="col-md-4 d-flex flex-column h-100 cd-left-column">
+
+                <!-- User profile bar -->
+                <div class="cd-user-profile-bar flex-shrink-0 d-flex justify-content-between">
+                    
+                    <!-- User profile -->
+                    <div class="cd-user-profile d-flex align-items-center">
+
+                        <!-- User profile pic -->
+                        <div class="cd-user-profile-pic me-2">
+                            <img src="../img/avatar_io.jpg" alt="Personal profile pic" class="cd-round-pic cd-round-pic-small">
+                        </div>
+
+                        <!-- User profile name -->
+                        <div class="cd-user-profile-name">
+                            <span class="cd-user-name">Sofia</span>
+                        </div>
+
+                    </div>
+
+                    <!-- User menu -->
+                    <div class="user-menu d-flex align-items-center">
+                        <i class="fa-solid fa-circle-notch fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-message fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-ellipsis-vertical fa-lg me-2 cd-icon cd-icon-dark"></i>
+                    </div>
+
+                </div>
+
+                <!-- Notifications bar -->
+                <div class="cd-notifications-bar flex-shrink-0 d-flex align-items-center">
+
+                    <!-- Notification icon -->
+                    <div class="cd-round-pic cd-round-pic-small d-flex align-items-center justify-content-center me-2">
+                        <i class="fa-solid fa-bell-slash cd-icon cd-icon-blue"></i>
+                    </div>
+
+                    <!-- Notification text -->
+                    <div>
+                        <span class="cd-span-large d-block lh-1">Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#" class="cd-span-regular lh-1 text-muted">Attiva notifiche desktop</a>
+                    </div>
+
+                </div>
+
+                <!-- Search bar -->
+                <div class="cd-search-bar flex-shrink-0">
+
+                    <!-- Input field -->
+                    <div class="input-group">
+                        <span class="input-group-text" id="search-bar-users"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input  type="text"
+                                class="form-control cd-input"
+                                placeholder="Cerca o inizia una nuova chat"
+                                aria-describedby="search-bar-users"
+                                >
+                    </div>
+
+                </div>
+
+                <!-- User chat list -->
+                <div class="cd-user-chat-list flex-grow-1">
+
+                    <!-- User chat cycle -->
+                    <div v-for="(userChat, i) in userChatList"
+                        :class="selectedChatIndex === i ? 'selectedChat' : ''">
+
+                        <!-- User chat template -->
+                        <div class="cd-user-chat-item d-flex"
+                            @click="selectedChat(i)">
+
+                            <!-- User profile pic -->
+                            <div>
+                                <img :src="'../img/avatar' + userChat.avatar + '.jpg'"
+                                    :alt="'Profile pic of ' + userChat.name"
+                                    class="cd-round-pic cd-round-pic-large me-3">
+                            </div>
+    
+                            <!-- User chat info -->
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <div>
+                                    <span class="cd-user-name d-block">{{userChat.name}}</span>
+                                    <span class="cd-span-regular text-black-50">{{userChat.messages[userChat.messages.length - 1].message}}</span>
+                                </div>
+                            </div>
+    
+                            <!-- User chat time last message -->
+                            <div>
+                                <span class="cd-span-small text-black-50">{{userChat.messages[userChat.messages.length - 1].date.substr(11,5)}}</span>
+                            </div>
+                            
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right column -->
+            <div class="col-md-8 d-flex flex-column h-100">
+
+                <!-- Chat header -->
+                <div class="cd-chat-header flex-shrink-0 d-flex justify-content-between">
+
+                    <!-- Chat user info -->
+                    <div class="d-flex align-items-center">
+
+                        <!-- User profile pic -->
+                        <div>
+                            <img :src="selectedUserChatImage" alt="Profile pic" class="cd-round-pic cd-round-pic-small me-3">
+                        </div>
+    
+                        <!-- User chat info -->
+                        <div class="d-flex align-items-center flex-grow-1">
+                            <div>
+                                <span class="cd-user-name d-block lh-1">{{selectedUserChatName}}</span>
+                                <span class="cd-span-regular text-black-50 lh-1">Ultimo accesso oggi alle 12:00</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Chat menu -->
+                    <div class="user-menu d-flex align-items-center">
+                        <i class="fa-solid fa-magnifying-glass fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-paperclip fa-lg me-3 cd-icon cd-icon-dark"></i>
+                        <i class="fa-solid fa-ellipsis-vertical fa-lg me-2 cd-icon cd-icon-dark"></i>
+                    </div>
+
+                </div>
+
+                <!-- Chat content -->
+                <div class="cd-chat-content flex-grow-1 pt-5">
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 d-flex flex-column">
+
+                            <!-- Messages cycle -->
+                            <div v-for="(chat, i) in selectedUserChat">
+                                <div class="d-flex mb-2" :class="chat.status === 'received' ? 'justify-content-start' : 'justify-content-end'">
+                                    <div class="messageBox" :class="chat.status === 'received' ? 'messageReceived' : 'messageSent'">
+                                        <div>{{chat.message}}</div>
+                                        <div class="d-flex justify-content-end">
+                                            <span class="cd-span-xsmall text-black-50">{{chat.date.substr(11,5)}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Chat send message -->
+                <div class="cd-chat-send-message flex-shrink-0 d-flex">
+
+                    <!-- Emoji icon -->
+                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center cd-chat-send-message-icon">
+                        <i class="fa-regular fa-face-smile fa-lg cd-icon cd-icon-black"></i>
+                    </div>
+
+                    <!-- Input message -->
+                    <div class="flex-grow-1 d-flex align-items-center justify-content-center ">
+                        <input
+                                type="text"
+                                class="form-control cd-input cd-input-rounded"
+                                id="newMessage"
+                                placeholder="Scrivi un messaggio"
+                                v-model="newMessage"
+                                @keyup.enter="sendMessage">
+                    </div>
+
+                    <!-- Microphone icon -->
+                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center cd-chat-send-message-icon">
+                        <i class="fa-solid fa-microphone fa-lg cd-icon cd-icon-black"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Javascript -->
+    <script src="../js/db.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+</html>
