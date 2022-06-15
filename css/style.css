@@ -186,22 +186,8 @@
     overflow: auto;
 }
 
-
-/* ---- */
-
-/* Chat message */
-
-.cd-chat-send-message {
-    flex-basis: 60px;
-    background-color: var(--cd-light-gray-3);
-}
-
-.cd-chat-send-message-icon {
-    padding: 0 var(--cd-padding-large);
-}
-
 .messageBox {
-    padding: var(--cd-padding-small) var(--cd-padding-xsmall) var(--cd-padding-xsmall) var(--cd-padding-small);
+    padding: var(--cd-padding-small) var(--cd-padding-small) var(--cd-padding-xsmall) var(--cd-padding-small);
     background-color: #ffffff;
     min-width: 120px;
     max-width: 300px;
@@ -214,4 +200,18 @@
 
 .messageSent {
     background-color: #D5F9BA;
+}
+
+
+/* ---- */
+
+/* Chat message */
+
+.cd-chat-send-message {
+    flex-basis: 60px;
+    background-color: var(--cd-light-gray-3);
+}
+
+.cd-chat-send-message-icon {
+    padding: 0 var(--cd-padding-large);
 }

@@ -7,7 +7,7 @@ new Vue ({
         userChatList: contatti,
         selectedChatIndex: 0,
         selectedUserChatName: "Michele",
-        selectedUserChatImage: "../img/avatar_1.jpg"
+        selectedUserChatImage: "../img/avatar_1.jpg",
     },
 
     // App methods
