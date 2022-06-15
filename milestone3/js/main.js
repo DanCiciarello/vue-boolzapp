@@ -35,7 +35,7 @@ new Vue ({
         sendMessage () {
             // Creo un nuovo oggetto con il messaggio inserito
             let newMessageObj = {
-                date: "10/01/2020 15:30:55",
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: this.newMessage,
                 status: "sent",
             }
@@ -43,6 +43,14 @@ new Vue ({
             this.selectedUserChat.push(newMessageObj);
             // Svuoto l'input field
             this.newMessage = "";
+            // Creo un nuovo oggetto con la risposta
+            let newMessageObjReply = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                message: "Ok",
+                status: "received",
+            };
+            // Pusho la risposta dopo 1 secondo
+            setTimeout(() => this.selectedUserChat.push(newMessageObjReply), 1000);
         },
 
     },
