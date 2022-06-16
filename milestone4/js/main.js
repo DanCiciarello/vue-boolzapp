@@ -28,10 +28,10 @@ new Vue ({
             // Al click, registro l'indice dell'elemento cliccato
             this.selectedChatIndex = index;
             // Cambio il nome e l'immagine della chat attiva
-            this.selectedUserChatName = this.userChatList[index].name;
-            this.selectedUserChatImage = "../img/avatar" + this.userChatList[index].avatar + ".jpg";
+            this.selectedUserChatName = this.userChatListFiltered[index].name;
+            this.selectedUserChatImage = "../img/avatar" + this.userChatListFiltered[index].avatar + ".jpg";
             // Cambio la chat associata all'utente selezionato
-            this.selectedUserChat = this.userChatList[index].messages;
+            this.selectedUserChat = this.userChatListFiltered[index].messages;
         },
 
         // Send a new message
