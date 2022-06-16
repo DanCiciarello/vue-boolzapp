@@ -62,6 +62,12 @@ new Vue ({
             this.userChatListFiltered = this.userChatList.filter(user => user.name.toLowerCase().includes(this.searchInputText));
         },
 
+        // Delete message
+        deleteMessage (index) {
+            // Recupero l'indice della chat attiva ed elimino il messsaggio selezionato
+            this.userChatListFiltered[this.selectedChatIndex].messages.splice(index,1);
+        },
+
     },
 
 });
